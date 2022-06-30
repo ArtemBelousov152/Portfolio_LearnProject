@@ -1,23 +1,38 @@
 $(document).ready(function(){
+    /* Open and close menu */
     const hamburger = document.querySelector('.hamburger'),
           menu = document.querySelector('.menu'),
-          close = document.querySelector('.menu__close');
+          close = document.querySelector('.menu__close'),
+          menuItem = document.querySelectorAll('.menu__link');
+    
 
     hamburger.addEventListener('click', () => {
         menu.classList.add('active')
     });
 
+    $('.menu__overlay').click(function(e) {
+		if ($(e.target).closest('.menu').length) {
+			$('.menu').removeClass('active');					
+		}
+	});
+    menuItem.forEach(item => {
+        item.addEventListener('click', () => {
+            menu.classList.remove('active')
+        });
+    });
+    
     close.addEventListener('click', () => {
         menu.classList.remove('active')
     });
 
+    /* interactive persent line */
     const percents = document.querySelectorAll('.tech__skills-percent'),
         lines = document.querySelectorAll('.tech__skills-substrip');
 
     percents.forEach((item, i) => {
         lines[i].style.width = item.innerHTML;
     });
-
+    /* form validate */
     $('.contacts__form').validate({
         rules: {
             name: {
@@ -41,6 +56,7 @@ $(document).ready(function(){
             }
         }
     });
+    /* send message from user */
     $('form').submit(function(e) {
         e.preventDefault();
 
