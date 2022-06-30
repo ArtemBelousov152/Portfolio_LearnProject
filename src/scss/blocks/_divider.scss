@@ -1,0 +1,14 @@
+.divider {
+    width: 60px;
+    height: 3px;
+    background-color: $main-color;
+    &_center {
+        margin: 0 auto;
+    }
+    &_mt20px{
+        margin-top: 20px;
+    }
+    &_mt30px {
+        margin-top: 30px;
+    }
+}
