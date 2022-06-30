@@ -1,7 +1,7 @@
 <?php 
 
 $name = $_POST['name'];
-$phone = $_POST['phone'];
+$text = $_POST['text'];
 $email = $_POST['email'];
 
 require_once('phpmailer/PHPMailerAutoload.php');
@@ -18,7 +18,7 @@ $mail->Password = 'ppwydnqwdmvfthko';                           // Наш пар
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
  
-$mail->setFrom('zopash1@gmail.com', 'Pulse');   // От кого письмо 
+$mail->setFrom('zopash1@gmail.com', 'Portfolio');   // От кого письмо 
 $mail->addAddress('zopash1@mail.ru');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
@@ -32,8 +32,8 @@ $mail->Subject = 'Данные';
 $mail->Body    = '
 		Пользователь оставил данные <br> 
 	Имя: ' . $name . ' <br>
-	Номер телефона: ' . $phone . '<br>
-	E-mail: ' . $email . '';
+	E-mail ' . $email . '<br>
+	Сообщение: ' . $text . '';
 
 if(!$mail->send()) {
     return false;
